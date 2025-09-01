@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AtlasOra</title>
+    <meta name="description" content="The next generation rental platform.">
+    <meta property="og:title" content="AtlasOra">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://atlasora.com">
+    <meta property="og:image" content="https://atlasora.com/res/share.jpg">
+    <meta property=”og:description” content="The next generation rental platform.">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            border: 0;
+            margin: 0;
+            outline: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            height: 100%;
+        }
+        body {
+            background: black;
+        }
+        body {
+            -webkit-font-smoothing: antialiased !important;
+            -moz-osx-font-smoothing: grayscale;
+            background: black;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+            font-weight: 400;
+        }
+        img {
+            max-width: 100%;
+        }
+        h1 {
+            margin: 40px auto 0 auto;
+            font-size: 32px;
+            font-weight: 400;
+            line-height: 1.1;
+            letter-spacing: -0.5px;
+            max-width: 30ch;
+        }
+        h1 span {
+            font-weight: 500;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+        }
+        p {
+            margin-top: 24px;
+            font-size: 20px;
+            font-weight: 300;
+            letter-spacing: -0.5px;
+        }
+        input, select {
+            padding: 0 16px;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            width: 100%;
+            height: 44px;
+            display: block;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.20);
+            background: rgba(0, 0, 0, 0.5);
+            margin-bottom: 12px;
+            color: white;
+        }
+        *::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+            opacity: 1;
+        }
+        select:invalid {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        select:valid {
+            color: white;
+        }
+        input:hover, select:hover {
+            border-color:rgba(255, 255, 255, 0.5);
+        }
+        input:focus, select:focus {
+            color: white;
+            border-color:rgba(255, 255, 255, 0.5);
+        }
+        button {
+            width: 100%;
+            height: 44px;
+            margin-top: 12px;
+            border-radius: 8px;
+            background: #69DFDE;
+            color: #0B2B37;
+            text-align: center;
+            font-weight: 700;
+            cursor: pointer;
+            letter-spacing: -0.5px;
+        }
+        button:hover {
+            transition: all 0.2s ease;
+            background: white;
+        }
+        header, main {
+            padding: 0 16px;
+        }
+        header {
+            margin-top: 40px;
+        }
+        .video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: 100%;
+            height: auto;
+            z-index: -1000;
+            background-size: cover;
+            object-fit: cover;
+            opacity: 0.5;
+        }
+        form {
+            padding: 16px;
+            font-size: 14px;
+            text-align: center;
+            margin: 40px auto 0 auto;
+            width: 100%;
+            max-width: 352px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            background: rgba(255, 255, 255, 0.05);
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 48px;
+            height: 48px;
+        }
+        small {
+            display: block;
+            margin-top: 12px;
+            font-size: 12px;
+            opacity: 0.5;
+        }
+        @media (min-width: 768px) {
+            header, main {
+                padding: 0;
+            }
+            header {
+                margin-top: 80px;
+            }
+            footer {
+                margin-top: 0;
+                height: auto;
+                position: fixed;
+                bottom: 40px;
+                width: 100%;
+                left: 0;
+            }
+            form {
+                margin-top: 80px;
+            }
+            h1 {
+                font-size: 48px;
+                margin-top: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container"></div>
+        <header>
+            <img src="/res/logo.svg" alt="AtlasOra">
+            <h1>The pool is the same. The platform <i>isn't</i>. We are <span>AtlasOra</span>.</h1>
+        </header>
+
+        <main>
+            <p>The short-term rental space hasn't changed in over a decade. We're here to fix that. Join us.</p>
+
+            <!--<form>
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="text" placeholder="Country of Residence (optional)">
+                <select required>
+                    <option value="" disabled selected hidden>Your Role</option>
+                    <option value="host">Host</option>
+                    <option value="guest">Guest</option>
+                    <option value="other">Other</option>
+                  </select>
+                <button type="submit">Register Now</button>
+                <small>We respect your privacy. Unsubscribe at any time.</small>
+            </form>-->
+
+            <script async data-uid="546f60eb6c" src="https://atlasora.kit.com/546f60eb6c/index.js"></script>
+        </main>
+
+        <footer>
+            <a href="https://linkedin.com/company/atlasora/" target="_blank"><img src="/res/linkedin.svg" width="16" height="auto" alt="LinkedIn"></a>
+            <a href="https://x.com/AtlasOraRentals" target="_blank"><img src="/res/x.svg" width="16" height="auto" alt="X"></a>
+            <a href="https://discord.gg/7fUPzXT5e8" target="_blank"><img src="/res/discord.svg" width="16" height="auto" alt="Discord"></a>
+        </footer>
+    </div>
+    
+    <video autoplay muted loop playsinline class="video">
+        <source src="/res/atlasora.mp4" type="video/mp4">
+    </video>
+</body>
+</html>
