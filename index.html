@@ -176,6 +176,15 @@
                 margin-top: 80px;
             }
         }
+        /* Kit.com overrides */
+        .formkit-header, .formkit-content {
+            display: none !important;
+        }
+        @media (min-width: 900px) {
+            .formkit-form[data-uid="546f60eb6c"][data-format="inline-editing"], .formkit-form[data-uid="546f60eb6c"][data-format="inline"] {
+                max-width: none !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -200,9 +209,26 @@
                   </select>
                 <button type="submit">Register Now</button>
                 <small>We respect your privacy. Unsubscribe at any time.</small>
-            </form>-->
-
-            <script async data-uid="546f60eb6c" src="https://atlasora.kit.com/546f60eb6c/index.js"></script>
+            </form>-->         
+            
+            <form id="earlyaccess">
+                <input type="text" name="firstName" placeholder="Full Name (optional)" autocomplete="name">
+                <input type="email" name="email" placeholder="Email" required autocomplete="email">
+              
+                <input type="text" name="country" placeholder="Country of Residence (optional)">
+              
+                <select name="role" required>
+                  <option value="" disabled selected hidden>Your Role</option>
+                  <option value="Host">Host</option>
+                  <option value="Guest">Guest</option>
+                  <option value="Other">Other</option>
+                </select>
+              
+                <button type="submit" id="submitBtn">Register Now</button>
+                <small>We respect your privacy. Unsubscribe at any time.</small>
+              
+                <div id="status" style="margin-top:12px;font-size:14px;min-height:18px;"></div>
+            </form>              
         </main>
 
         <footer>
@@ -215,5 +241,53 @@
     <video autoplay muted loop playsinline class="video">
         <source src="/res/atlasora.mp4" type="video/mp4">
     </video>
+
+    <script>
+        (function(){
+          const form = document.getElementById('earlyaccess');
+          const btn = document.getElementById('submitBtn');
+          const statusEl = document.getElementById('status');
+      
+          function setStatus(msg, ok) {
+            statusEl.textContent = msg || '';
+            statusEl.style.opacity = '0.9';
+            statusEl.style.color = ok ? '#69DFDE' : '#ffb3b3';
+          }
+      
+          form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            setStatus('', true);
+            btn.disabled = true; btn.textContent = 'Submitting…';
+      
+            const formData = new FormData(form);
+            const payload = {
+              firstName: (formData.get('firstName') || '').toString().trim(),
+              email:     (formData.get('email') || '').toString().trim(),
+              country:   (formData.get('country') || '').toString().trim(),
+              role:      (formData.get('role') || '').toString().trim(),
+            };
+      
+            try {
+              const resp = await fetch('/api/signup', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+              });
+      
+              const data = await resp.json().catch(()=>({}));
+              if (!resp.ok || data.ok === false) {
+                throw new Error(data.error || 'Something went wrong. Please try again.');
+              }
+      
+              setStatus('Thanks! You’re on the list. ✨', true);
+              form.reset();
+            } catch (err) {
+              setStatus(err.message || 'Submission failed. Please try again.', false);
+            } finally {
+              btn.disabled = false; btn.textContent = 'Register Now';
+            }
+          });
+        })();
+    </script>      
 </body>
 </html>
