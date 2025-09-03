@@ -22,9 +22,6 @@
             outline: 0;
             box-sizing: border-box;
         }
-        html, body {
-            height: 100%;
-        }
         body {
             background: black;
         }
@@ -42,14 +39,15 @@
         }
         h1 {
             margin: 40px auto 0 auto;
-            font-size: 32px;
-            font-weight: 400;
+            font-size: 36px;
+            font-weight: 500;
             line-height: 1.1;
             letter-spacing: -0.5px;
             max-width: 30ch;
         }
         h1 span {
             font-weight: 500;
+            display: block;
         }
         a {
             color: white;
@@ -113,6 +111,20 @@
         }
         header {
             margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header span {
+            font-size: 14px;
+            display: inline-block;
+            height: 40px;
+            line-height: 38px;
+            padding: 0 16px;
+            border-radius: 20px;
+            color: #69DFDE;
+            font-weight: 500;
+            border: 1px solid #69DFDE;
         }
         .video {
             position: fixed;
@@ -144,8 +156,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 48px;
-            height: 48px;
+            gap: 40px;
+            height: 80px;
         }
         small {
             display: block;
@@ -153,12 +165,25 @@
             font-size: 12px;
             opacity: 0.5;
         }
+        .btn {
+            display: inline-block;
+            margin-top: 40px;
+            border: 1px solid white;
+            border-radius: 20px;
+            height: 40px;
+            font-size: 14px;
+            line-height: 38px;
+            padding: 0 16px;
+        }
         @media (min-width: 768px) {
             header, main {
                 padding: 0;
             }
             header {
-                margin-top: 80px;
+                margin: 40px auto 0 auto;
+                width: 100%;
+                max-width: 1280px;
+                padding: 0 16px;
             }
             footer {
                 margin-top: 0;
@@ -176,13 +201,10 @@
                 margin-top: 80px;
             }
         }
-        /* Kit.com overrides */
-        .formkit-header, .formkit-content {
-            display: none !important;
-        }
-        @media (min-width: 900px) {
-            .formkit-form[data-uid="546f60eb6c"][data-format="inline-editing"], .formkit-form[data-uid="546f60eb6c"][data-format="inline"] {
-                max-width: none !important;
+        @media (max-width: 767px) {
+            .wrapper {
+                padding: 0 10px;
+                text-align: left;
             }
         }
     </style>
@@ -190,12 +212,15 @@
 <body>
     <div class="container"></div>
         <header>
-            <img src="/res/logo.svg" alt="AtlasOra">
-            <h1>The pool is the same. The platform <i>isn't</i>. We are <span>AtlasOra</span>.</h1>
+            <a href="/"><img src="/res/logo.svg" alt="AtlasOra"></a>
+            <span>ICO Oct 2025</span>
         </header>
 
         <main>
-            <p>The short-term rental space hasn't changed in over a decade. We're here to fix that. Join us.</p>
+            <div class="wrapper">
+                <h1>The pool is the same. The platform <i>isn't</i>. <span>We are AtlasOra.</span></h1>
+                <p>The short-term rental space hasn't changed in over a decade. We're here to fix that. Join us.</p>
+            </div>
 
             <!--<form>
                 <input type="text" placeholder="Full Name" required>
@@ -211,6 +236,9 @@
                 <small>We respect your privacy. Unsubscribe at any time.</small>
             </form>-->         
             
+            <a class="btn" href="https://atlasora.com/docs/atlasora-litepaper.pdf" target="_blank"><img src="/res/arrow.svg" width="12" height="auto" style="margin-right: 8px;" alt="">Download Litepaper</a>
+        
+
             <form id="earlyaccess">
                 <input type="text" name="firstName" placeholder="Full Name (optional)" autocomplete="name">
                 <input type="email" name="email" placeholder="Email" required autocomplete="email">
@@ -227,14 +255,15 @@
                 <button type="submit" id="submitBtn">Register Now</button>
                 <small>We respect your privacy. Unsubscribe at any time.</small>
               
-                <div id="status" style="margin-top:12px;font-size:14px;min-height:18px;"></div>
-            </form>              
+                <div id="status"></div>
+            </form>
+
         </main>
 
         <footer>
-            <a href="https://linkedin.com/company/atlasora/" target="_blank"><img src="/res/linkedin.svg" width="16" height="auto" alt="LinkedIn"></a>
-            <a href="https://x.com/AtlasOraRentals" target="_blank"><img src="/res/x.svg" width="16" height="auto" alt="X"></a>
-            <a href="https://discord.gg/7fUPzXT5e8" target="_blank"><img src="/res/discord.svg" width="16" height="auto" alt="Discord"></a>
+            <a href="https://linkedin.com/company/atlasora/" target="_blank"><img src="/res/linkedin.svg" width="20" height="auto" alt="LinkedIn"></a>
+            <a href="https://x.com/AtlasOraRentals" target="_blank"><img src="/res/x.svg" width="20" height="auto" alt="X"></a>
+            <a href="https://discord.gg/7fUPzXT5e8" target="_blank"><img src="/res/discord.svg" width="20" height="auto" alt="Discord"></a>
         </footer>
     </div>
     
